@@ -77,10 +77,12 @@ body {
     background-color: mediumseagreen; }
     .listAnimaux td:hover {
       background-color: darkgreen !important; }
-  .listAnimaux td:nth-child(2n) {
+  .listAnimaux tr:nth-child(2n) td {
     background-color: darkseagreen; }
   .listAnimaux img {
     max-width: 470px;
-    height: auto; }
+    height: auto;
+    float: left;
+    margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */

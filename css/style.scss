@@ -98,13 +98,18 @@ body {
     }
   }
 
-  td:nth-child(2n) {
-    background-color: darkseagreen;
+  tr:nth-child(2n) {
+    td {
+      background-color: darkseagreen;
+    }
   }
 
   img {
     max-width: 470px;
     height: auto;
+    float: left;
+    margin-right: 20px;
+
   }
 }
 
