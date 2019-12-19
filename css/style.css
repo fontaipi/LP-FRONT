@@ -12,10 +12,11 @@ body {
   border-bottom: solid;
   width: 100%;
   padding: 25px;
-  text-decoration: none; }
+  text-decoration: none;
+  z-index: 1000; }
   .menu #logo {
     float: left;
-    margin: 0 50px 0 100px;
+    margin: 0 50px 0 70px;
     width: 50px;
     height: 50px; }
     .menu #logo img {
@@ -24,7 +25,8 @@ body {
   .menu .mainMenu {
     display: flex;
     justify-content: space-around;
-    list-style: none; }
+    list-style: none;
+    padding-right: 50px; }
     .menu .mainMenu a {
       text-decoration: none;
       font-family: Arial;
@@ -69,18 +71,49 @@ body {
   min-height: 450px; }
 
 .listAnimaux {
-  border: solid;
-  margin-top: 20px; }
-  .listAnimaux th {
-    background-color: forestgreen; }
-  .listAnimaux td {
-    background-color: mediumseagreen; }
-    .listAnimaux td:hover {
-      background-color: darkgreen !important; }
-  .listAnimaux td:nth-child(2n) {
-    background-color: darkseagreen; }
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap; }
+  .listAnimaux h2 {
+    margin: 0; }
+  .listAnimaux h3 {
+    margin: 0; }
+  .listAnimaux .imgCard {
+    position: relative; }
+    .listAnimaux .imgCard .infosImg {
+      position: absolute;
+      background-color: darkseagreen;
+      color: white;
+      border-bottom-right-radius: 10px;
+      border-right: solid black;
+      border-bottom: solid black;
+      padding: 20px; }
+  .listAnimaux .item:nth-child(3n+1) {
+    margin-left: 0; }
+  .listAnimaux .item {
+    border: solid black;
+    flex: 0 0 32%;
+    margin-left: 1%;
+    margin-bottom: 1%; }
   .listAnimaux img {
-    max-width: 470px;
-    height: auto; }
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px; }
+
+@media screen and (max-width: 1024px) {
+  .listAnimaux .item {
+    flex: 1 0 48%;
+    margin-left: 0 !important; }
+  .listAnimaux .item:nth-child(2n) {
+    margin-left: 1% !important; } }
+@media screen and (max-width: 740px) {
+  .listAnimaux .item {
+    flex: 0 0 100%;
+    margin-left: 0 !important; }
+  .listAnimaux .item:nth-child(2n) {
+    margin-left: 0% !important; } }
+@media screen and (max-width: 320px) {
+  .imgCard .infosImg {
+    padding: 5px !important; } }
 
 /*# sourceMappingURL=style.css.map */
