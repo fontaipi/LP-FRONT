@@ -63,7 +63,7 @@ body {
       margin-top: 20px; }
 
 #bandeauHaut {
-  background-image: url("../../TP2/data/bg.jpg");
+  background-image: url("../data/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
