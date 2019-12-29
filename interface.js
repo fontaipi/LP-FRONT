@@ -18,6 +18,21 @@ var listAnimaux = {
     rhinocéros
 }
 
+var zoo1 = {
+    nom : 'Zoo 1', adresse : 'Rue du Zoo 1, Grenoble 38000', tel : '01010101010', description : 'Zoo 1 de Grenoble pour les visites en famille', latitude : '45.1667', longitude : '5.7167'
+}
+var zoo2 = {
+    nom : 'Zoo 2', adresse : 'Rue du Zoo 2, Grenoble 38000', tel : '01010101010', description : 'Zoo 2 de Grenoble pour les visites en grandes famille pour les petits et les grands', latitude : '45.167919300400015', longitude : '5.765567602424939'
+}
+var zoo3 = {
+    nom : 'Zoo 3', adresse : 'Rue du Zoo 3, Grenoble 38000', tel : '01010101010', description : 'Zoo 3 de Grenoble pour les visites, Zoo principal', latitude : '45.15789742028336', longitude : '5.731406988411267'
+}
+var listLieux = {
+    zoo1,
+    zoo2,
+    zoo3
+}
+
 var menu = {
     "item1" : {
         "libelle" : 'Menu',
@@ -158,7 +173,47 @@ function afficherMenu() {
     }
 }
 
+function loadMap(){
+    $("#loadMap").after("<div id='map'></div>");
+    $("#loadMap").attr("onclick", "closeMap()");
+
+    var map = L.map('map').setView([45.1667, 5.7167], 12);
+
+// add an OpenStreetMap tile layer
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var zoo_icon = L.icon({
+        iconUrl: 'data/zoo_icon.png',
+        //shadowUrl: 'icon-shadow.png',
+        iconSize:     [50, 64], // taille de l'icone
+        //shadowSize:   [50, 64], // taille de l'ombre
+        iconAnchor:   [25, 64], // point de l'icone qui correspondra à la position du marker
+        //shadowAnchor: [32, 64],  // idem pour l'ombre
+        popupAnchor:  [-3, -76], // point depuis lequel la popup doit s'ouvrir relativement à l'iconAnchor
+    });
+
+
+    $.each(listLieux, function(i, lieu) {
+        L.marker([lieu.latitude, lieu.longitude], {icon: zoo_icon}).addTo(map).bindPopup("<b>"+lieu.nom+"</b><br>"+ lieu.adresse).openPopup();
+    });
+
+
+}
+
+function closeMap(){
+    $('#map').remove();
+    $("#loadMap").attr("onclick", "loadMap()");
+}
+
 $(document).ready(function () {
     loadAnimaux();
     afficherMenu();
+    $.each(listLieux, function(i, lieu) {
+        $('#descriptionLieu').append('<p>'+ lieu.nom+'<br>'+lieu.description +'</p>')
+        $('#assistanceLieu').append('<p><b>Tel :'+ lieu.nom+'</b><br>'+lieu.tel +'<br>Adresse :'+lieu.adresse +'</p>')
+    });
+
+
 })

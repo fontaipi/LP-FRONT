@@ -78,7 +78,7 @@ body {
   }
 }
 #bandeauHaut {
-  background-image: url("../../TP2/data/bg.jpg");
+  background-image: url("../data/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -169,6 +169,10 @@ body {
     }
   }
 }
+#map
+{ height: 400px; }
+
+
 
 
 

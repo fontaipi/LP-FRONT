@@ -5,6 +5,8 @@
     <title>Activités</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 </head>
 <body>
 <header>
@@ -20,12 +22,17 @@
 </header>
 <main>
     <div class="innerCenter">
-        <ol>
-            <li><a href="#">Actualité</a></li>
-            <li><a href="#">Programme</a></li>
-            <li><a href="#">Tarifs</a></li>
-            <li><a href="">Parrainage et conservation</a></li>
-        </ol>
+       <div id="descriptionLieu">
+           <h2>Information :</h2>
+       </div>
+        <div id="assistanceLieu">
+            <h2>Assistance :</h2>
+        </div>
+        <div>
+            <h2>Localisation :</h2>
+            <button onclick="loadMap()" id="loadMap">Afficher la carte</button>
+        </div>
+
     </div>
 </main>
 <footer>
